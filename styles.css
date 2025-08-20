@@ -1,0 +1,174 @@
+/* =========================
+   Paleta Evangelion + base
+   ========================= */
+:root{
+  --bg: #0b0b10;           /* negro abismo */
+  --surface: #11121a;      /* capa sutil */
+  --surface-2:#171827;
+  --text: #e6e8ef;         /* blanco suave */
+  --muted:#a5acc1;
+
+  --eva-purple:#5630A6;    /* Unidad-01 */
+  --eva-lime:#A6FF00;      /* neón */
+  --eva-orange:#FF6A00;    /* acento alerta */
+  --eva-magenta:#FF2E8B;   /* acento pop */
+  --border:#272a3f;
+
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+*{ box-sizing:border-box; }
+html, body{ height:100%; }
+body{
+  margin:0;
+  background: radial-gradient(1200px 800px at 10% -10%, rgba(86,48,166,.15), transparent 60%) ,
+              radial-gradient(1000px 600px at 110% 10%, rgba(166,255,0,.08), transparent 60%) ,
+              var(--bg);
+  color:var(--text);
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height:1.7;
+  font-size:16.5px;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Tipografía */
+h1,h2,h3,h4{
+  font-family: "Space Grotesk", ui-sans-serif, system-ui;
+  letter-spacing: .2px;
+  line-height:1.2;
+  margin: 0 0 .4rem 0;
+}
+h1{ font-size: clamp(2rem, 3.8vw, 3rem); }
+h2{ font-size: clamp(1.5rem, 2.6vw, 2rem); }
+h3{ font-size: 1.25rem; }
+
+p{ margin: .6rem 0 1rem; color: var(--text); }
+em{ color: var(--muted); }
+hr{ border:0; height:1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin:2rem 0; }
+
+/* Links y botones */
+a{ color: var(--eva-lime); text-decoration: none; }
+a:hover{ text-decoration: underline; text-underline-offset: 3px; }
+
+.btn{
+  display:inline-block;
+  padding:.7rem 1rem;
+  border-radius: calc(var(--radius) - 6px);
+  background: linear-gradient(135deg, var(--eva-purple), #2f1f61);
+  color:white;
+  border:1px solid #3c2a79;
+  box-shadow: var(--shadow);
+  transition: transform .08s ease, box-shadow .2s ease, filter .2s ease;
+}
+.btn:hover{ transform: translateY(-1px); filter: saturate(1.1); }
+
+/* Layout */
+.container{
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.2rem 4rem;
+}
+
+/* Header / Nav */
+.site-header{
+  position: sticky; top:0; z-index:10;
+  backdrop-filter: blur(6px);
+  background: color-mix(in oklab, var(--bg) 80%, transparent);
+  border-bottom: 1px solid var(--border);
+}
+.nav{
+  max-width: 980px;
+  margin: 0 auto;
+  display:flex; align-items:center; justify-content:space-between;
+  padding: .8rem 1.2rem;
+}
+.brand{
+  font-family:"Space Grotesk";
+  font-size:1.15rem; font-weight:700;
+  color:white;
+  background: linear-gradient(90deg, var(--eva-lime), var(--eva-purple));
+  -webkit-background-clip: text;
+  background-clip:text;
+  color: transparent;
+}
+.nav-links a{
+  margin-left: 1rem;
+  padding:.35rem .55rem;
+  border-radius:10px;
+  color: var(--text);
+}
+.nav-links a:hover{
+  background: var(--surface);
+  color: white;
+}
+
+/* Tarjetas (proyectos/blog) */
+.card{
+  background: linear-gradient(180deg, var(--surface), var(--surface-2));
+  border:1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  box-shadow: var(--shadow);
+}
+.card h2 a{ color:white; }
+.card .meta{ color: var(--muted); font-size:.95rem; }
+
+/* Contenido */
+main img{ max-width:100%; border-radius: 12px; }
+code, pre{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+pre{
+  background: #0f1020;
+  padding:1rem; border-radius:12px;
+  border:1px solid #2a2d45; overflow:auto;
+}
+blockquote{
+  margin:1rem 0; padding: .8rem 1rem;
+  border-left: 4px solid var(--eva-purple);
+  background: #0f1020;
+  border-radius: 8px;
+  color: #d9dbeb;
+}
+
+/* Listas de blog/proyectos más bonitas */
+.article-list article{
+  padding: 1.1rem 1rem;
+  border:1px solid var(--border);
+  border-radius: 14px;
+  background: linear-gradient(180deg, var(--surface), var(--surface-2));
+  margin: 1rem 0;
+}
+.article-list h2{ margin-bottom:.25rem; }
+.article-list .read-more{ display:inline-block; margin-top:.4rem; }
+
+/* Footer */
+.site-footer{
+  border-top:1px solid var(--border);
+  padding: 2rem 1.2rem;
+  color: var(--muted);
+  text-align:center;
+}
+
+/* Accesibilidad */
+:focus-visible{
+  outline: 2px solid var(--eva-lime);
+  outline-offset: 3px;
+}
+
+/* Selección de texto */
+::selection{
+  background: color-mix(in oklab, var(--eva-lime) 35%, transparent);
+  color: #121212;
+}
+
+.hero-img {
+  display: block;
+  margin: 1.5rem auto;
+  max-width: 280px;
+  border-radius: 50%;
+  border: 3px solid var(--eva-lime);
+  box-shadow: var(--shadow);
+}
